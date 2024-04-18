@@ -23,6 +23,9 @@
     </style>
   </head>
   <body>
-    <h1><%= title %></h1>
+    <form action="/api/images/webp" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*">
+      <input type="submit" value="Cargar">
+    </form>
   </body>
 </html>
