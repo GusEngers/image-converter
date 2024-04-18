@@ -1,5 +1,5 @@
 const app = require('./src/app');
-const db = require('./src/config/db');
+// const db = require('./src/config/db');
 const { PORT, MODE } = require('./src/utils/constants');
 
 /**
@@ -8,7 +8,7 @@ const { PORT, MODE } = require('./src/utils/constants');
  */
 async function main() {
   try {
-    await db();
+    // await db();
     app.listen(PORT, () => {
       process.stdout.write(`[INFO] Server listening on port '${PORT}' in '${MODE}' mode\n`);
     });
