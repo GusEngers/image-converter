@@ -22,4 +22,5 @@ module.exports = {
   get IS_PRODUCTION() {
     return this.MODE === this.PRODUCTION ? true : false;
   },
+  FORMAT_IMAGES: ['jpeg', 'gif', 'png', 'webp', 'bmp', 'svg'],
 };
