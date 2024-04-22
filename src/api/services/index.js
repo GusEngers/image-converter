@@ -1,3 +1,3 @@
-// SERVICIOS QUE SE EJECUTAN EN LOS CONTROLADORES DE RUTAS
-
-module.exports = {};
+module.exports = {
+  converterService: require('./converter.service'),
+};

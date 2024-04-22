@@ -6,7 +6,8 @@ const upload = multer();
 
 async function converterImage(req, res, next) {
   try {
-    const output = await sharp(req.file.buffer).toFormat('webp').toBuffer();
+    console.log(req.file)
+    const output = await sharp(req.file.buffer).toFormat('gif').toBuffer();
     res.render('pages/view-image', {image: output.toString('base64')});
   } catch (error) {
     next(error)
