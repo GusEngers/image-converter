@@ -2,13 +2,13 @@ const sharp = require('sharp');
 
 /**
  * @description Convierte una imagen de un formato a otro
- * @param {Buffer} file Buffer de imagen que se desea convertir a otro formato
+ * @param {Buffer} buffer Buffer de imagen que se desea convertir a otro formato
  * @param {string} format Formato final de la nueva imagen
- * @returns {string} String del buffer de la nueva imagen convertida
+ * @returns {Promise<Buffer>} Buffer de la nueva imagen convertida
  */
-async function converterImage(file, format) {
-  const output = await sharp(file).toFormat(format).toBuffer();
-  return output.toString('base64');
+async function converterImage(buffer, format) {
+  const output = await sharp(buffer).toFormat(format).toBuffer();
+  return output;
 }
 
 module.exports = { converterImage };

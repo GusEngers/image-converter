@@ -1,26 +1,20 @@
 const multer = require('multer');
-const sharp = require('sharp');
-
-// CONTROLADORES DE RUTAS
 const upload = multer();
 
-async function converterImage(req, res, next) {
-  try {
-    console.log(req.file)
-    const output = await sharp(req.file.buffer).toFormat('gif').toBuffer();
-    res.render('pages/view-image', {image: output.toString('base64')});
-  } catch (error) {
-    next(error)
-  }
-}
+// CONTROLADORES DE RUTAS
+const { converterImage } = require('./images.controller') 
 
+/**
+ * @param {Error} err Error generado
+ * @param {import('express').Request} req Solicitud
+ * @param {import('express').Response} res Respuesta
+ * @param {import('express').NextFunction} next Siguiente middleware
+ */
 function errorHandler(err, req, res, next) {
+  console.log('[ERROR-CONTROLADOR]', err)
   res.send(err);
 }
 
 module.exports = {
-  homeApi: (req, res, next) => {
-    res.json({ ping: 'pong' });
-  },
-  converterController: [upload.single('image'), converterImage, errorHandler],
+  imageController: [upload.single('image'), converterImage, errorHandler],
 };
